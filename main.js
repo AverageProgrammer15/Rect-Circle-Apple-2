@@ -73,7 +73,7 @@ recognition.onresult = function(event) {
   draw_apple = "set";
  }
 
- draw();
+
 
 }
 
