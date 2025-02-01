@@ -73,7 +73,7 @@ recognition.onresult = function(event) {
   draw_apple = "set";
  }
 
-
+console.log(draw_circle, draw_rectangle, draw_apple)
 
 }
 
