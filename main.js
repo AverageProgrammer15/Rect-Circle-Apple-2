@@ -80,48 +80,30 @@ recognition.onresult = function(event) {
 
 
 function draw(){
-  Rng = Math.floor(Math.random());
-  x = 0;
-  y = 0;
-  if(draw_apple == "set")
-  {
-    for (i=1; i<=to_number;i++){
-      Rng = Math.floor(Math.random());
-      x = Rng * 700
-      y = Rng * 400
-      
-      image(apple, x, y, 50,50)
-      speak_data = "Drawn an apple"
+  if (to_number <= 0) {
+    console.log("Invalid number of objects to draw");
+    return;
+  }
 
-      
-      
-      speak()
-    }
-  } else if(draw_circle == "set"){
-    for (i=1; i<=to_number;i++){
-      Rng = Math.floor(Math.random());
-      x = Rng * 700
-      y = Rng * 400
-      
-      image(round, x, y, 50,50)
-      speak_data = "Drawn a circle"
-      speak()
+  for (let i = 0; i < to_number; i++) {
+    let Rng = Math.floor(Math.random() * 10); // Random value between 0 and 9
+    let x = Rng * 700;
+    let y = Rng * 400;
+
+    if(draw_apple == "set") {
+      image(apple, x, y, 50, 50);
+      speak_data = "Drawn an apple";
+    } else if(draw_circle == "set") {
+      image(round, x, y, 50, 50);
+      speak_data = "Drawn a circle";
+    } else if(draw_rectangle == "set") {
+      image(rect, x, y, 50, 50);
+      speak_data = "Drawn a rectangle";
     }
     
-  }else if(draw_rectangle == "set"){
-    for (i=1; i<=to_number;i++){
-      Rng = Math.floor(Math.random());
-      x = Rng * 700
-      y = Rng * 400
-      
-      image(rect, x, y, 50,50)
-      speak_data = "Drawn a rectangle"
-
-      
-      speak()
-    }
+    speak(); // Speak the message after each drawing
   }
-} 
+}
 
 function speak(){
     var synth = window.speechSynthesis;
