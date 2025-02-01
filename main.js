@@ -26,7 +26,7 @@ function setup() {
   screen_height = window.innerHeight;
   canvas = createCanvas(screen_width, screen_height-150);
   canvas.center()
-  console.log("Canvas created and loaded.");
+  console.log("Canvas created and loaded. Data: width-",screen_width,";height:",screen_height-150);
   background(220);
 
 
